@@ -1,0 +1,24 @@
+terraform {
+  required_version = ">= 1.11.0"
+  required_providers {
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.0"
+    }
+  }
+}
+
+provider "aws" {
+  region = var.aws_region
+
+  default_tags {
+    tags = {
+      Project     = "regulated-platform-blueprint"
+      Environment = "lab"
+      Owner       = "shravanbotuku"
+      CostCenter  = "portfolio-lab"
+      ManagedBy   = "terraform"
+      Repo        = "regulated-platform-blueprint"
+    }
+  }
+}
